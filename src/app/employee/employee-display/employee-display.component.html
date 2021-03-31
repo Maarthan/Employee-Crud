@@ -1,0 +1,18 @@
+<!-- <div *ngFor="let employee of employeeDetails">
+    <h1>{{employee.name}}</h1>
+    <p>{{employee.email}}</p>
+    <hr>
+</div> -->
+
+<table>
+    <thead>
+        <th>Email</th>
+        <th>Name</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employeeDetails">
+            <td>{{employee.email}}</td>
+            <td>{{employee.name}}</td>
+        </tr>
+    </tbody>
+</table>
