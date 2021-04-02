@@ -12,7 +12,6 @@
           <small *ngIf="(employeeDetailsForm.get('email').touched || employeeDetailsForm.get('email').dirty) && employeeDetailsForm.get('email').hasError('required')">This field should not be empty</small>
           <small *ngIf="(employeeDetailsForm.get('email').touched || employeeDetailsForm.get('email').dirty) && employeeDetailsForm.get('email').hasError('email')">Please enter a valid email</small>
         </div>
-        <button type="submit" [disabled]="!employeeDetailsForm.valid" class="btn btn-primary" (click)="submitForm()">Submit</button>
+        <button type="submit" [disabled]="!employeeDetailsForm.valid" class="btn btn-primary" (click)="submitForm()">Update</button>
     </form>
 </div>
-

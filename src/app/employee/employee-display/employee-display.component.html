@@ -1,18 +1,23 @@
-<!-- <div *ngFor="let employee of employeeDetails">
-    <h1>{{employee.name}}</h1>
-    <p>{{employee.email}}</p>
-    <hr>
-</div> -->
-
-<table>
-    <thead>
-        <th>Email</th>
-        <th>Name</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let employee of employeeDetails">
-            <td>{{employee.email}}</td>
-            <td>{{employee.name}}</td>
-        </tr>
-    </tbody>
-</table>
+<app-navbar></app-navbar>
+<div class="display-container">
+  <div class="card" *ngFor="let employee of employeeDetails">
+    <div class="card-body">
+      <p><b>Name:</b> <span class="emp-name"> {{ employee.name }}</span></p>
+      <p><b>Email:</b> {{ employee.email }}</p>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="updateEmployee(employee.id)"
+      >
+        Update
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="deleteEmployee(employee.id)"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

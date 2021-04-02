@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Employee from 'src/assets/models/Employee';
 import { EmployeeService } from '../employee.service';
 
 @Component({
@@ -8,8 +10,8 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeDisplayComponent implements OnInit {
 
-  employeeDetails:Array<any>;
-  constructor(private employeeService:EmployeeService) { }
+  employeeDetails:Array<Employee>;
+  constructor(private employeeService:EmployeeService, private router:Router) { }
 
   ngOnInit(): void {
     this.employeeService.getAllEmployeeDetails().subscribe(
@@ -20,5 +22,18 @@ export class EmployeeDisplayComponent implements OnInit {
       error => console.log(error)
     )
   }
+
+  deleteEmployee(id:BigInteger){
+    console.log(id);
+    this.employeeService.deleteEmployeeDetails(id).subscribe(
+      data => console.log(data),
+      error => console.log(error.message)
+    )
+  }
+
+  updateEmployee(id:BigInteger){
+    this.router.navigate(['/employee/update',id]);
+  }
+
 
 }
