@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+<div class="message-alert" *ngIf="message != ''">
+  <app-message [message]="message" [type]="type"></app-message>
+</div>
 <div class="form-container">
     <form [formGroup]="employeeDetailsForm">
         <div class="mb-3">

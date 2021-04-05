@@ -10,6 +10,8 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeCreateComponent implements OnInit {
   
   employeeDetailsForm;
+  message:String = "";
+  type:String = "";
 
   constructor(private fb:FormBuilder, private employeeService:EmployeeService) { 
     this.employeeDetailsForm = this.fb.group({
@@ -23,11 +25,31 @@ export class EmployeeCreateComponent implements OnInit {
 
   submitForm(){
     console.log(this.employeeDetailsForm.value);
-    this.employeeService.createEmployeeDetails(this.employeeDetailsForm.value).subscribe(
-      data => console.log(data),
-      error => console.log(error)
+    const newEmployee = {
+      "name":this.employeeDetailsForm.get('name').value,
+      "email":this.employeeDetailsForm.get('email').value
+    }
+    this.employeeService.createEmployeeDetails(newEmployee).subscribe(
+      data => {
+        console.log(data);
+        this.message = "Employee details created successfully";
+        this.type = "success";
+        this.deleteMessage();
+      },
+      error => {
+        console.log(error);
+        this.message = error.error.message;
+        this.type = "danger";
+        this.deleteMessage();
+      }
     );
     this.employeeDetailsForm.reset();
+  }
+
+  deleteMessage(){
+    setTimeout(()=>{
+      this.message = "";
+    },3000)
   }
 
 }

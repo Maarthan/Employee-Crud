@@ -36,7 +36,7 @@ export class EmployeeUpdateComponent implements OnInit {
         console.log(data)
         this.populateForm(this.employeeDetail);
       },
-      error => console.log(error)
+      error => console.log(error.error.message)
     )
   }
 

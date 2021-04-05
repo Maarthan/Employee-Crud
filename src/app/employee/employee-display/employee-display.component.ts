@@ -11,6 +11,8 @@ import { EmployeeService } from '../employee.service';
 export class EmployeeDisplayComponent implements OnInit {
 
   employeeDetails:Array<Employee>;
+  searchValue:String = '';
+
   constructor(private employeeService:EmployeeService, private router:Router) { }
 
   ngOnInit(): void {
@@ -27,7 +29,7 @@ export class EmployeeDisplayComponent implements OnInit {
     console.log(id);
     this.employeeService.deleteEmployeeDetails(id).subscribe(
       data => console.log(data),
-      error => console.log(error.message)
+      error => console.log(error)
     )
   }
 
