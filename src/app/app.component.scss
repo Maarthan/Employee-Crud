@@ -1,0 +1,25 @@
+
+
+.logo-header{
+    width: 100vw;
+    height: 70px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.3px solid rgb(104, 104, 104);
+
+    h2{
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+
+        span{
+            background-color: rgb(89, 89, 255);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+    }
+
+}
